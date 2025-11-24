@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/DARP-Python" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/DRL-robot-navigation" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Minigrid" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Multi-Agent-Reinforcement-Learning" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/mappo" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/marlgrid" vcs="Git" />
+  </component>
+</project>
