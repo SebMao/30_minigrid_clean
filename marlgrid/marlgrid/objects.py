@@ -1,6 +1,6 @@
 import numpy as np
 from enum import IntEnum
-from gym_minigrid.rendering import (
+from minigrid.utils.rendering import (
     fill_coords,
     point_in_rect,
     point_in_triangle,

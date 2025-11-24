@@ -1,5 +1,6 @@
 import pyglet
 from pyglet.gl import *
+from pyglet import gl
 import sys
 
 class SimpleImageViewer(object):

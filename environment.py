@@ -55,9 +55,9 @@ class RescueEnv:
 
     def get_s0(self):
         # 获得地图信息
-        grid = self.env.grid
+        grid = self.env.unwrapped.grid
         ret = self.grid_str2array(grid)
-        viewed_area = self.env.viewed_area
+        viewed_area = self.env.unwrapped.viewed_area
 
 
         return torch.Tensor(ret * viewed_area * 0)  # TODO: 关闭全局地图的实验
@@ -65,8 +65,8 @@ class RescueEnv:
 
     def get_s_agent(self):
         agent_views = []
-        for a in self.env.agents:
-            obs, _ = self.env.gen_obs_grid(a)
+        for a in self.env.unwrapped.agents:
+            obs, _ = self.env.unwrapped.gen_obs_grid(a)
             agent_views.append(self.grid_str2array(obs))
         return torch.Tensor(agent_views)
 

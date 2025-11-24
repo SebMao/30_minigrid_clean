@@ -3,7 +3,7 @@
 
 import gymnasium as gym
 import numpy as np
-import gym_minigrid
+import minigrid
 from enum import IntEnum
 import math
 import warnings
@@ -11,7 +11,7 @@ import warnings
 from .objects import WorldObj, Wall, Goal, Lava, GridAgent, BonusTile, BulkObj, COLORS
 from .agents import GridAgentInterface
 from .rendering import SimpleImageViewer
-from gym_minigrid.rendering import fill_coords, point_in_rect, downsample, highlight_img
+from minigrid.utils.rendering import fill_coords, point_in_rect, downsample, highlight_img
 
 TILE_PIXELS = 32
 
