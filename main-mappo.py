@@ -209,7 +209,6 @@ def main(args):
     # TRY NOT TO MODIFY: start the game
     global_step = 0
     start_time = time.time()
-    env.reset()
     next_map = torch.Tensor(env.get_s0())
     next_local_obs = torch.Tensor(env.get_s_agent())
 
@@ -227,7 +226,7 @@ def main(args):
         # if update >= 2000:
         #     print('theta changed')
         #     args.theta_coef = 5
-
+        env.reset()
         for step in range(0, args.num_steps):
             global_step += 1 * args.num_envs
             maps[step] = next_map
