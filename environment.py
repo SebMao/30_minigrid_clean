@@ -91,6 +91,12 @@ class RescueEnv:
         self.env.reset(seed=seed)
         self.env.render()
 
+    def close(self):
+        if self.closed:
+            return
+        self.env.close()
+        self.closed = True
+
     def key_handler(self, event):
         key: str = event.key
         print("pressed", key)
