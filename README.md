@@ -18,7 +18,7 @@
 
 ### 参数与超参
 
-- 解析入口：`/Users/kx.mao/RL/30_minigrid_clean/main-mappo.py:28`（`parse_args`）
+- 解析入口：`main-mappo.py:28`（`parse_args`）
 - 关键超参：`num_steps`（默认 200）、`total_timestamps`、`learning_rate`、`gamma`、`gae` 与 `gae_lambda`、`clip_coef`、`vf_coef`、`update_epochs`、`num_minibatches`
 - 批量规模：`batch_size = num_envs * num_steps`，`minibatch_size = batch_size // num_minibatches`（`main-mappo.py:82-84`）
 
@@ -52,7 +52,7 @@
   - 对每步记录当前观测与 done（`main-mappo.py:232-237`）
   - 对每个智能体：`actor(map, local)` 采样动作与对数概率（`main-mappo.py:241-246`）
   - 评估当前值：`critic(map, local_all_agents)`（`main-mappo.py:246-247`）
-  - 环境步进：`env.step(actions[step])`（`/Users/kx.mao/RL/30_minigrid_clean/main-mappo.py:250`）并记录奖励与下一个观测（`main-mappo.py:251-259`）
+  - 环境步进：`env.step(actions[step])`（`main-mappo.py:250`）并记录奖励与下一个观测（`main-mappo.py:251-259`）
 
 ### 优势与回报
 
@@ -77,20 +77,20 @@
 
 ### environment.py（环境包装器）
 
-- 观测编码：将字符网格编码为数值并归一化（`/Users/kx.mao/RL/30_minigrid_clean/environment.py:34-54`）
+- 观测编码：将字符网格编码为数值并归一化（`environment.py:34-54`）
 - 全局状态：当前返回全零张量以关闭全局地图影响（`environment.py:63`）
 - 局部视图：按智能体生成 5×5 局部观测（`environment.py:66-72`）
 - 步进/渲染：调用底层 MarlGrid 并在每步渲染（`environment.py:78-89`）
 
 ### main-ppo.py（单智能体训练示例）
 
-- 仅训练一个智能体，其余智能体动作为固定常量（`/Users/kx.mao/RL/30_minigrid_clean/main-ppo.py:262`）
+- 仅训练一个智能体，其余智能体动作为固定常量（`main-ppo.py:262`）
 - `Actor` 结构更简洁，直接基于局部观测产生 3 类动作（`main-ppo.py:87-134`）
 - 优势默认使用非 GAE，`advantages = returns`（`main-ppo.py:301-306`）
 
 ### main.py（演示脚本）
 
-- 注册并构建环境，包装为 `RescueEnv`，启动渲染与简单步进（`/Users/kx.mao/RL/30_minigrid_clean/main.py:8-24`）
+- 注册并构建环境，包装为 `RescueEnv`，启动渲染与简单步进（`main.py:8-24`）
 
 ## 状态与动作设计
 
