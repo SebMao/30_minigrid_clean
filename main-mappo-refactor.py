@@ -498,6 +498,12 @@ def main(args):
             if global_step % 1000 == 0:
                 print(f"Step: {global_step}, EpLen: {episode_step}, Loss: {loss.item():.3f}")
 
+   
+    # 保存模型
+    save_path = f"runs/{run_name}/actor.pth"
+    torch.save(actor.state_dict(), save_path)
+    print(f"Model saved to {save_path}")
+
     env.close()
     writer.close()
     pbar.close()

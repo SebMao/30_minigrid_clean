@@ -103,6 +103,7 @@
 - 多智能体训练：
   ```bash
   python main-mappo.py --total-timesteps 100000 --num-steps 200 --learning-rate 5e-4
+  python main-mappo-refactor.py --total-timesteps 100000 --max-episode-steps 200 --learning-rate 5e-4
   ```
 - 单智能体训练示例：
   ```bash
@@ -112,7 +113,11 @@
   ```bash
   python main.py
   ```
-
+- 模型评估：
+  ```bash
+  python eval_mappo.py --model-path runs/YOUR_RUN_NAME/actor.pth  ## 评估模型性能
+  python eval_mappo.py --model-path runs/YOUR_RUN_NAME/actor.pth --render --num-episodes 5  ## 环境渲染```
+  ```
 ## 设计注意与扩展建议
 
 - 学习率退火：按更新轮次线性退火（`main-mappo.py:223-227`）
