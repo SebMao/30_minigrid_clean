@@ -76,16 +76,16 @@ class RescueEnv:
 
 
     def step(self, action: List[Actions]):
-        obs, rewards, terminated, _ = self.env.step(action)
+        obs, rewards, terminated, truncated, info = self.env.step(action)
         # print(f"step={self.env.step_count}, reward={rewards}")
 
-        if terminated:
-            print("terminated!")
+        if terminated or truncated:
+            print("terminated or truncated!")
             self.env.render()
             # self.reset(self.seed)
         else:
             self.env.render()
-        return obs, rewards, terminated, _
+        return obs, rewards, terminated, truncated, info
 
     def reset(self, seed=None):
         self.env.reset(seed=seed)

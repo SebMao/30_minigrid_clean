@@ -587,10 +587,12 @@ class MultiGridEnv(gym.Env):
 
 
         obs = [self.gen_agent_obs(agent) for agent in self.agents]
-        done = 1 if ((self.step_count >= self.max_steps) or ('G' not in str(self.grid))) else 0
+        terminated = ('G' not in str(self.grid))
+        truncated = (self.step_count >= self.max_steps)
+        info = {}
+        # done = 1 if ((self.step_count >= self.max_steps) or ('G' not in str(self.grid))) else 0
 
-
-        return obs, step_rewards, done, {}
+        return obs, step_rewards, terminated, truncated, info
 
     def put_obj(self, obj, i, j):
         """
